@@ -29,7 +29,7 @@ public class Employee {
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy="employee")
     private Collection<Project> projects;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name="manager_id")
     private Manager manager;
 

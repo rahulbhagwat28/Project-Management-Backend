@@ -3,8 +3,10 @@ package com.SpringBasics.EmployeeSystem.Controllers;
 
 import com.SpringBasics.EmployeeSystem.Constants.Constants;
 import com.SpringBasics.EmployeeSystem.DTO.EmployeeDto;
+import com.SpringBasics.EmployeeSystem.DTO.ManagerDto;
 import com.SpringBasics.EmployeeSystem.DataAccess.EmployeeRepository;
 import com.SpringBasics.EmployeeSystem.Entities.Employee;
+import com.SpringBasics.EmployeeSystem.Exception.UserNotFoundException;
 import com.SpringBasics.EmployeeSystem.Service.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,35 +36,25 @@ public class EmployeeController {
     @PostMapping("/createEmployee")
     public ResponseEntity<String> createEmployee(@RequestBody @Valid EmployeeDto employeeDto)
     {
-        try
-        {
+
               EmployeeDto employeeResponse =employeeService.createEmployee(employeeDto);
-              return new ResponseEntity<>(Constants.employeeSuccess, HttpStatus.OK);
-        }
-        catch(Exception e)
-        {
-            return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+              return new ResponseEntity<>(Constants.createSuccess, HttpStatus.OK);
 
     }
 
+    @DeleteMapping("deleteEmplopyee/{id}")
+    public ResponseEntity<String> deleteEmployee(@PathVariable("id") long id)
+    {
+        employeeService.deleteEmployee(id);
+        return new ResponseEntity<>(Constants.deleteSuccess, HttpStatus.OK);
+    }
 
-    @GetMapping("/employee/{id}")
-    public ResponseEntity<?> getEmployee(@PathVariable("id")long id)
+    @PostMapping("assignManager/{id}")
+    public ResponseEntity<ManagerDto> assignManager(@RequestBody ManagerDto managerDto, @PathVariable("id") long userId)
     {
 
-       try
-       {
-
-           Optional<Employee> emp= employeeRepository.findById(id);
-           Employee response=emp.get();
-            System.out.println(response);
-            return new ResponseEntity<>("employee retrieved", HttpStatus.OK);
-       }
-        catch(Exception e)
-        {
-            return new ResponseEntity<>("Employee with id"+id+"is not present in the database",HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
+        ManagerDto response=employeeService.assignManager(managerDto,userId);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
 }
