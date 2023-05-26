@@ -13,6 +13,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
 
@@ -43,6 +45,17 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
+    public EmployeeDto updateEmployee(EmployeeDto employeeDto,long id) {
+
+        Employee employee=employeeRepository.findById(id).orElseThrow(()-> new UserNotFoundException("User Not Found"));
+
+
+        modelMapper.map(employeeDto, employee);
+        employeeRepository.save(employee);
+        return modelMapper.map(employee,EmployeeDto.class);
+    }
+
+    @Override
     public ManagerDto assignManager(ManagerDto managerDto,long id) {
         Manager manager=this.modelMapper.map(managerDto,Manager.class);
         Employee employee=employeeRepository.findById(id).orElseThrow(()->new UserNotFoundException("Not found"));
@@ -51,5 +64,13 @@ public class EmployeeServiceImpl implements EmployeeService{
 
         return managerDto;
     }
+
+    @Override
+    public List<Employee> findAllEmployees() {
+        List<Employee> employeeList=employeeRepository.findAll();
+
+        return employeeList;
+    }
+
 
 }

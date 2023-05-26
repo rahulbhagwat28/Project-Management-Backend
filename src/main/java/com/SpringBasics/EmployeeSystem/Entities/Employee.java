@@ -1,5 +1,6 @@
 package com.SpringBasics.EmployeeSystem.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,10 +32,12 @@ public class Employee {
 
     @ManyToOne(fetch=FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name="manager_id")
+    @JsonIgnore
     private Manager manager;
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="company_id")
+    @JsonIgnore
     private Company company;
 
 
