@@ -1,18 +1,16 @@
 package com.SpringBasics.EmployeeSystem.DTO;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Data
-public class ManagerDto {
+public class AuthRequest {
 
-    private String manager_name;
+    private String username;
 
-    private String designation;
-
-
+    private String password;
 
 }

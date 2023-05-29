@@ -16,5 +16,5 @@ public class Company {
     private String name;
 
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "company")
-    private Collection<Employee> employees;
+    private Collection<User> users;
 }

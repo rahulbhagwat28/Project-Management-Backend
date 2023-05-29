@@ -20,6 +20,6 @@ public class Project {
 
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="employee_id")
-    private Employee employee;
+    @JoinColumn(name="user_id")
+    private User user;
 }

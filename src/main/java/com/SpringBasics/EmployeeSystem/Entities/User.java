@@ -7,38 +7,54 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 
 import lombok.*;
 
 @Entity
 @Data
-@AllArgsConstructor
+
 @NoArgsConstructor
 @ToString
-public class Employee {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long emp_id;
+    private long user_id;
 
 
     private String name;
 
     private String designation;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy="employee")
+    private String username;
+
+    private String email;
+
+    private String password;
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy="user")
     private Collection<Project> projects;
 
-    @ManyToOne(fetch=FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name="manager_id")
-    @JsonIgnore
-    private Manager manager;
+
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="company_id")
     @JsonIgnore
     private Company company;
+
+
+
+
+    public User(String username,String email,String password)
+    {
+        this.username=username;
+        this.email=email;
+        this.password=password;
+    }
+
 
 
 }
