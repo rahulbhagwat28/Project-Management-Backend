@@ -33,8 +33,8 @@ public class SecurityConfig {
 
 
 
-      http.authorizeHttpRequests(auth->auth.requestMatchers("/api/v1/employees/login","/api/v1/employees/createEmployee").permitAll()
-              .requestMatchers("/api/v1/employees/findAllEmployees").permitAll().anyRequest().authenticated());
+      http.authorizeHttpRequests(auth->auth.requestMatchers("/api/v1/employees/login","/api/v1/employees/createEmployee","/api/v1/employees/logout").permitAll()
+              .requestMatchers("/api/v1/employees/findAllEmployees").permitAll());
        http.headers(headers->headers.frameOptions(frame-> frame.disable()));
 
 

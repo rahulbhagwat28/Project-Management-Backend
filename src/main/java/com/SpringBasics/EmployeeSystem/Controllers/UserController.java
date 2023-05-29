@@ -7,6 +7,7 @@ import com.SpringBasics.EmployeeSystem.DTO.UserDto;
 
 import com.SpringBasics.EmployeeSystem.Entities.User;
 import com.SpringBasics.EmployeeSystem.Entities.UserPrincipal;
+import com.SpringBasics.EmployeeSystem.Exception.UsernameNotAuthenticatedException;
 import com.SpringBasics.EmployeeSystem.Service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,8 @@ import java.util.List;
 public class UserController {
 
     private UserService userService;
+
+    boolean loggedin=false;
 
   @Autowired
  AuthenticationManager authenticationManager;
@@ -81,17 +84,21 @@ public class UserController {
     public ResponseEntity<String> login(@RequestBody AuthRequest request, @AuthenticationPrincipal UserPrincipal user) throws Exception {
 
 
+        Authentication authentication= authenticateUser(request.getUsername(), request.getPassword());
 
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(request.getUsername(),
-                request.getPassword());
-
-        this.authenticationManager.authenticate(authenticationToken);
-
-        System.out.println(this.authenticationManager.authenticate(authenticationToken));
-
-
-
+        loggedin=authentication.isAuthenticated();
         return new ResponseEntity<>("Logged in Successfully", HttpStatus.OK);
+
+
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout() throws Exception {
+
+        loggedin=false;
+        return new ResponseEntity<>("Logged out Successfully", HttpStatus.OK);
+
+
     }
 
 
@@ -99,10 +106,22 @@ public class UserController {
     @GetMapping("findAllEmployees")
     public ResponseEntity<List<User>> findAllEmployees()
     {
-
-
-        List<User> response=userService.findAllUsers();
+        if(loggedin==false) {
+           throw new UsernameNotAuthenticatedException("Username is not authenticated");
+        }
+        List<User> response = userService.findAllUsers();
         return new ResponseEntity<>(response, HttpStatus.OK);
+
     }
 
+
+    public Authentication authenticateUser(String username,String password)
+    {
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username,password);
+
+        this.authenticationManager.authenticate(authenticationToken);
+
+        return this.authenticationManager.authenticate(authenticationToken);
+
+    }
 }
