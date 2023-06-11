@@ -1,8 +1,11 @@
 package com.SpringBasics.EmployeeSystem.DTO;
 
 import com.SpringBasics.EmployeeSystem.Entities.Company;
+import com.SpringBasics.EmployeeSystem.Entities.Role;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,7 +24,7 @@ public class UserDto {
 
     private String password;
 
-
+    private Set<Role> roles;
 
 
 }

@@ -5,12 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
-public class AuthRequest {
+public class ProjectDto {
 
-    private String username;
 
-    private String password;
+    private String project_name;
 
+    private String project_description;
 }

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -18,6 +19,7 @@ import lombok.*;
 
 @NoArgsConstructor
 @ToString
+@Table(name="users")
 public class User {
 
     @Id
@@ -35,7 +37,7 @@ public class User {
 
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy="user")
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private Collection<Project> projects;
 
 
@@ -45,6 +47,9 @@ public class User {
     @JsonIgnore
     private Company company;
 
+
+    @ManyToMany
+    private List<Role> roles;
 
 
 
