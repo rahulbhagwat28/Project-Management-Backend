@@ -5,6 +5,7 @@ import com.SpringBasics.EmployeeSystem.DTO.UserDto;
 
 import com.SpringBasics.EmployeeSystem.Entities.User;
 
+import java.security.Principal;
 import java.util.List;
 
 public interface UserService {
@@ -15,7 +16,9 @@ public interface UserService {
 
     UserDto updateUser(UserDto employeeDto, long id);
 
-    ProjectDto assignProject(ProjectDto projectDto, long id);
+    ProjectDto assignProject(ProjectDto projectDto, long userId);
+
+    void completeProject(long projectId,String username);
 
     List<User> findAllUsers();
 

@@ -41,6 +41,7 @@ public class UserPrincipal implements UserDetails {
     }
 
 
+
     public List<Role> getRoles() {
         return user.getRoles();
     }

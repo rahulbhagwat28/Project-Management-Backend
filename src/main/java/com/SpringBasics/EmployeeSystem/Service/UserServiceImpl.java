@@ -8,17 +8,20 @@ import com.SpringBasics.EmployeeSystem.DataAccess.RoleRepository;
 import com.SpringBasics.EmployeeSystem.DataAccess.UserRepository;
 
 import com.SpringBasics.EmployeeSystem.Entities.Project;
-import com.SpringBasics.EmployeeSystem.Entities.Role;
 import com.SpringBasics.EmployeeSystem.Entities.User;
 //import com.SpringBasics.EmployeeSystem.Entities.UserPrincipal;
 import com.SpringBasics.EmployeeSystem.Exception.UserNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.core.parameters.P;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -85,6 +88,25 @@ public class UserServiceImpl implements UserService {
             }
 
         return modelMapper.map(project, ProjectDto.class);
+    }
+
+    @Override
+    public void completeProject(long projectId,String username) {
+
+        User user=userRepository.findByEmail(username);
+        if(ObjectUtils.isEmpty(user)) {
+            throw new UserNotFoundException("User not found");
+        }
+
+        for(Project project:user.getProjects())
+        {
+            if(project.getProject_id()==projectId)
+            {
+                project.setCompleted(true);
+            }
+        }
+
+        System.out.println(user);
     }
 
     @Override

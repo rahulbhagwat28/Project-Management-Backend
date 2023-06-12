@@ -26,6 +26,7 @@ import org.springframework.http.ResponseEntity;
 //import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -84,7 +85,17 @@ public class UserController {
     @PostMapping("assign/{id}")
     public ResponseEntity<String> assignProject(@RequestBody ProjectDto projectDto, @PathVariable("id")long id)
     {
-        userService.assignProject(projectDto,id);
+        userService.assignProject(projectDto, id);
+        return new ResponseEntity<>("Assigned Successfully", HttpStatus.OK);
+    }
+
+
+    @PostMapping("completeProject/{projectId}/user/{userId}")
+    public ResponseEntity<String> completeProject(@PathVariable("projectId")long projectId,
+                                                   Principal principal)
+    {
+
+        userService.completeProject(projectId,principal.getName());
         return new ResponseEntity<>("Assigned Successfully", HttpStatus.OK);
     }
 

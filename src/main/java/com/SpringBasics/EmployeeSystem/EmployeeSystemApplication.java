@@ -30,13 +30,19 @@ public class EmployeeSystemApplication {
 		return args -> {
 
 			Role role=new Role(1L,"ROLE_ADMIN");
-			roleRepository.save(role);
+			Role role2=new Role(2L,"ROLE_MANAGER");
+			Role role3=new Role(3L,"ROLE_EMPLOYEE");
+			roleRepository.saveAll(List.of(role,role2,role3));
 			BCryptPasswordEncoder becrypt=new BCryptPasswordEncoder();
 			User user1=new User("rahulb","rahulbhagwat@gmail.com", becrypt.encode("admin"));
 			user1.setRoles(List.of(role));
 			User user2=new User("ameyb","ameybhagwat@gmail.com",becrypt.encode("admin"));
 			user2.setRoles(List.of(role));
-			userRepository.saveAll(List.of(user1,user2));
+			User user3=new User("anveshb","anvesh@gmail.com",becrypt.encode("manager"));
+			user3.setRoles(List.of(role2));
+			User user4=new User("mayurb","mayur@gmail.com",becrypt.encode("employee"));
+			user4.setRoles(List.of(role3));
+			userRepository.saveAll(List.of(user1,user2,user3,user4));
 		};
 	}
 
