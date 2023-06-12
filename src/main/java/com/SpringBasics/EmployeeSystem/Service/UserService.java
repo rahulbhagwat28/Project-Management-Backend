@@ -3,6 +3,7 @@ package com.SpringBasics.EmployeeSystem.Service;
 import com.SpringBasics.EmployeeSystem.DTO.ProjectDto;
 import com.SpringBasics.EmployeeSystem.DTO.UserDto;
 
+import com.SpringBasics.EmployeeSystem.Entities.Project;
 import com.SpringBasics.EmployeeSystem.Entities.User;
 
 import java.security.Principal;
@@ -21,5 +22,7 @@ public interface UserService {
     void completeProject(long projectId,String username);
 
     List<User> findAllUsers();
+
+    List<Project> getCompletedProjects();
 
 }

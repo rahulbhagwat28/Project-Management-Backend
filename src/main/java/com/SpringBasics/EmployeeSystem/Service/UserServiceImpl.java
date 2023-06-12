@@ -10,12 +10,16 @@ import com.SpringBasics.EmployeeSystem.DataAccess.UserRepository;
 import com.SpringBasics.EmployeeSystem.Entities.Project;
 import com.SpringBasics.EmployeeSystem.Entities.User;
 //import com.SpringBasics.EmployeeSystem.Entities.UserPrincipal;
+import com.SpringBasics.EmployeeSystem.Exception.ProjectCompletedException;
+import com.SpringBasics.EmployeeSystem.Exception.ProjectNotFoundException;
 import com.SpringBasics.EmployeeSystem.Exception.UserNotFoundException;
+import jakarta.validation.ConstraintViolationException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.parameters.P;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -25,6 +29,7 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -46,7 +51,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto createUser(UserDto userDto) {
 
-        User user=this.modelMapper.map(userDto,User.class);
+        User user = this.modelMapper.map(userDto, User.class);
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
@@ -58,14 +63,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUser(long id) {
-        User user=userRepository.findById(id).orElseThrow(()->new UserNotFoundException("Not found"));
+        User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("Not found"));
         userRepository.delete(user);
     }
 
     @Override
     public UserDto updateUser(UserDto userDto, long id) {
 
-        User user=userRepository.findById(id).orElseThrow(()-> new UserNotFoundException("User Not Found"));
+        User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User Not Found"));
         modelMapper.map(userDto, user);
         userRepository.save(user);
         return modelMapper.map(user, UserDto.class);
@@ -73,9 +78,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ProjectDto assignProject(ProjectDto projectDto, long id) {
-        User user=userRepository.findById(id).orElseThrow(()-> new UserNotFoundException("User Not Found"));
+        User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User Not Found"));
 
-        Project project=this.modelMapper.map(projectDto, Project.class);
+        Project project = this.modelMapper.map(projectDto, Project.class);
         projectRepository.save(project);
 
         List<Project> projects;
@@ -83,49 +88,60 @@ public class UserServiceImpl implements UserService {
 
         System.out.println(user.getUsername());
 
-            if (!user.getProjects().isEmpty()) {
-                projects = user.getProjects();
+        if (!user.getProjects().isEmpty()) {
+            projects = user.getProjects();
 
-            }
+        } else {
+            projects = new ArrayList<Project>();
+        }
 
-            else {
-                projects = new ArrayList<Project>();
-            }
+        projects.add(project);
 
-            projects.add(project);
+        user.setProjects(projects);
 
-            user.setProjects(projects);
-
-            userRepository.save(user);
+        userRepository.save(user);
 
 
         return modelMapper.map(project, ProjectDto.class);
     }
 
     @Override
-    public void completeProject(long projectId,String username) {
+    public void completeProject(long projectId, String username) {
 
-        User user=userRepository.findByEmail(username);
-        if(ObjectUtils.isEmpty(user)) {
-            throw new UserNotFoundException("User not found");
-        }
+        User user = userRepository.findByEmail(username);
 
-        for(Project project:user.getProjects())
-        {
-            if(project.getProject_id()==projectId)
-            {
-                project.setCompleted(true);
+        Project projectresult = projectRepository.findById(projectId).orElseThrow(() -> new ProjectNotFoundException("Project Not Found"));
+
+        if (user.getProjects().contains(projectresult)) {
+
+            if (projectresult.isCompleted() == false) {
+                projectresult.setCompleted(true);
+                userRepository.save(user);
+            } else {
+                throw new ProjectCompletedException("already completed this");
             }
         }
+
 
         System.out.println(user);
     }
 
+
+
     @Override
     public List<User> findAllUsers() {
-        List<User> userList=userRepository.findAll();
+        List<User> userList = userRepository.findAll();
 
         return userList;
+    }
+
+    @Override
+    public List<Project> getCompletedProjects() {
+
+        List<Project> completedProjects=projectRepository.findAll();
+
+        System.out.println(completedProjects.stream().filter(project->project.isCompleted()).collect(Collectors.toList()).get(0));
+        return completedProjects.stream().filter(project->project.isCompleted()).collect(Collectors.toList());
     }
 
 

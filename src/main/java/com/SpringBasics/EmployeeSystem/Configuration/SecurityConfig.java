@@ -36,7 +36,7 @@ public class SecurityConfig {
         http.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http.authorizeHttpRequests(auth -> auth.requestMatchers("/api/v1/employees/findAllEmployees").permitAll())
                 .authorizeHttpRequests(auth -> auth.requestMatchers(toH2Console()).permitAll())
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/api/v1/employees/assign/**").hasAuthority("ROLE_MANAGER"))
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/api/v1/employees/assign/**","/api/v1/employees/assign/getProjects/**").hasAuthority("ROLE_MANAGER"))
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/api/v1/employees/completeProject/**").hasAuthority("ROLE_EMPLOYEE"))
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/api/v1/employees/updateEmployee/**", "/api/v1/employees/deleteEmployee/**", "/api/v1/employees/createEmployee").hasAuthority("ROLE_ADMIN").anyRequest().authenticated())
 

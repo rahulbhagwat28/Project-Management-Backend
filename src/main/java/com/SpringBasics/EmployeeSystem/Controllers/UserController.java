@@ -7,6 +7,7 @@ import com.SpringBasics.EmployeeSystem.DTO.UserDto;
 
 import com.SpringBasics.EmployeeSystem.DataAccess.RoleRepository;
 import com.SpringBasics.EmployeeSystem.DataAccess.UserRepository;
+import com.SpringBasics.EmployeeSystem.Entities.Project;
 import com.SpringBasics.EmployeeSystem.Entities.User;
 //import com.SpringBasics.EmployeeSystem.Entities.UserPrincipal;
 import com.SpringBasics.EmployeeSystem.Service.UserService;
@@ -96,7 +97,15 @@ public class UserController {
     {
 
         userService.completeProject(projectId,principal.getName());
-        return new ResponseEntity<>("Assigned Successfully", HttpStatus.OK);
+        return new ResponseEntity<>("Project marked as completed", HttpStatus.OK);
+    }
+
+    @GetMapping("getProjects")
+    public ResponseEntity<List<Project>> getCompletedProjects()
+    {
+        return new ResponseEntity<>(userService.getCompletedProjects(), HttpStatus.OK);
+
+
     }
 
 
