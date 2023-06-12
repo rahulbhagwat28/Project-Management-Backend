@@ -38,7 +38,7 @@ public class User {
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private Collection<Project> projects;
+    private List<Project> projects;
 
 
 

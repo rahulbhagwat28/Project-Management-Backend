@@ -78,14 +78,26 @@ public class UserServiceImpl implements UserService {
         Project project=this.modelMapper.map(projectDto, Project.class);
         projectRepository.save(project);
 
+        List<Project> projects;
+
+
         System.out.println(user.getUsername());
 
-            if (user.getProjects().isEmpty()) {
+            if (!user.getProjects().isEmpty()) {
+                projects = user.getProjects();
 
-                List<Project> projects = new ArrayList<Project>(Arrays.asList(project));
-                     user.setProjects(projects);
-                     userRepository.save(user);
             }
+
+            else {
+                projects = new ArrayList<Project>();
+            }
+
+            projects.add(project);
+
+            user.setProjects(projects);
+
+            userRepository.save(user);
+
 
         return modelMapper.map(project, ProjectDto.class);
     }
