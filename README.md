@@ -1,6 +1,7 @@
 # Project-Management-Backend
 
 A Basic backend system for a project management usecase with CRUD operations and role based security  
+This is a beginner project for getting familiar with building a backend with spring framework
 
 Tech Stack :
 Language used : Java (Spring Boot , Spring DATA JPA , Spring Security , Lombok , H2 (In Memory Database)) 
