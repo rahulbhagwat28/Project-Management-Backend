@@ -13,6 +13,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+
+/*
+Class that stores roles and authorized user
+ */
+
 @ToString
 public class UserPrincipal implements UserDetails {
 

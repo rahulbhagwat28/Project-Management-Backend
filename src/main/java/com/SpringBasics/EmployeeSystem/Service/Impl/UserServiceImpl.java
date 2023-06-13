@@ -1,4 +1,4 @@
-package com.SpringBasics.EmployeeSystem.Service;
+package com.SpringBasics.EmployeeSystem.Service.Impl;
 
 import com.SpringBasics.EmployeeSystem.DTO.ProjectDto;
 import com.SpringBasics.EmployeeSystem.DTO.UserDto;
@@ -8,28 +8,27 @@ import com.SpringBasics.EmployeeSystem.DataAccess.RoleRepository;
 import com.SpringBasics.EmployeeSystem.DataAccess.UserRepository;
 
 import com.SpringBasics.EmployeeSystem.Entities.Project;
+import com.SpringBasics.EmployeeSystem.Entities.Role;
 import com.SpringBasics.EmployeeSystem.Entities.User;
-//import com.SpringBasics.EmployeeSystem.Entities.UserPrincipal;
+
 import com.SpringBasics.EmployeeSystem.Exception.ProjectCompletedException;
 import com.SpringBasics.EmployeeSystem.Exception.ProjectNotFoundException;
 import com.SpringBasics.EmployeeSystem.Exception.UserNotFoundException;
-import jakarta.validation.ConstraintViolationException;
+
+import com.SpringBasics.EmployeeSystem.Service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.parameters.P;
-import org.springframework.security.core.userdetails.UserDetails;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ObjectUtils;
 
-import java.security.Principal;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+/*
+Service Implementations for all endpoints
+ */
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -56,6 +55,8 @@ public class UserServiceImpl implements UserService {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
+        List<Role> roles=roleRepository.findAll().stream().filter(role->role.getRole_name()=="ROLE_EMPLOYEE").collect(Collectors.toList());
+        user.setRoles(roles);
         userRepository.save(user);
         return userDto;
 
@@ -113,13 +114,18 @@ public class UserServiceImpl implements UserService {
         Project projectresult = projectRepository.findById(projectId).orElseThrow(() -> new ProjectNotFoundException("Project Not Found"));
 
         if (user.getProjects().contains(projectresult)) {
-
+            
+            System.out.println(user.getProjects().contains(projectresult));
             if (projectresult.isCompleted() == false) {
                 projectresult.setCompleted(true);
                 userRepository.save(user);
             } else {
                 throw new ProjectCompletedException("already completed this");
             }
+        }
+        else
+        {
+            throw new ProjectNotFoundException("User does not have this project assigned");
         }
 
 

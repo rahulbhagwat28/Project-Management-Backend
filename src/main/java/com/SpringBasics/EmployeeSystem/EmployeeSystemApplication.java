@@ -1,8 +1,10 @@
 package com.SpringBasics.EmployeeSystem;
 
+import com.SpringBasics.EmployeeSystem.DataAccess.ProjectRepository;
 import com.SpringBasics.EmployeeSystem.DataAccess.RoleRepository;
 import com.SpringBasics.EmployeeSystem.DataAccess.UserRepository;
 
+import com.SpringBasics.EmployeeSystem.Entities.Project;
 import com.SpringBasics.EmployeeSystem.Entities.Role;
 import com.SpringBasics.EmployeeSystem.Entities.User;
 import org.modelmapper.ModelMapper;
@@ -22,11 +24,14 @@ public class EmployeeSystemApplication {
 	public ModelMapper modelMapper() {
 		return new ModelMapper();
 	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(EmployeeSystemApplication.class, args);
 	}
+
+	//Adding some employee data with admin , employee and manager roles
 	@Bean
-	public CommandLineRunner runner(UserRepository userRepository, RoleRepository roleRepository) {
+	public CommandLineRunner runner(UserRepository userRepository, RoleRepository roleRepository, ProjectRepository projectRepository) {
 		return args -> {
 
 			Role role=new Role(1L,"ROLE_ADMIN");
@@ -42,7 +47,12 @@ public class EmployeeSystemApplication {
 			user3.setRoles(List.of(role2));
 			User user4=new User("mayurb","mayur@gmail.com",becrypt.encode("employee"));
 			user4.setRoles(List.of(role3));
-			userRepository.saveAll(List.of(user1,user2,user3,user4));
+			User user5=new User("megha","megha@gmail.com",becrypt.encode("employee"));
+			user5.setRoles(List.of(role3));
+			userRepository.saveAll(List.of(user1,user2,user3,user4,user5));
+
+
+
 		};
 	}
 

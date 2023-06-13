@@ -13,6 +13,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
+/*
+Custom User Details Service for authentication
+ */
 @Transactional
 public class CustomUserDetailsService implements UserDetailsService {
 

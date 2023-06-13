@@ -9,6 +9,8 @@ import com.SpringBasics.EmployeeSystem.Entities.User;
 import java.security.Principal;
 import java.util.List;
 
+
+//All service endpoint methods
 public interface UserService {
 
     UserDto createUser(UserDto employeeDto);

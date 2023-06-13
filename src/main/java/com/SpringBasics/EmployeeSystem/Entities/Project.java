@@ -20,6 +20,12 @@ public class Project {
 
     private String project_description;
 
+    public Project(long project_id,String project_name,String project_description)
+    {
+        this.project_id=project_id;
+        this.project_name=project_name;
+        this.project_description=project_description;
+    }
 
     @JsonIgnore
     private boolean completed=false;
