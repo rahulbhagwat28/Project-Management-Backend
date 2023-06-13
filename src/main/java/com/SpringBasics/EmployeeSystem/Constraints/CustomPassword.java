@@ -13,6 +13,10 @@ import static java.lang.annotation.ElementType.PARAMETER;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 
+/*
+Custom password validator
+ */
+
 @Constraint(validatedBy = PasswordValidator.class)
 @Target({FIELD, PARAMETER})
 @Retention(RUNTIME)

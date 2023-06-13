@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+
+//Role Entity
 @Entity
 @Data
 @AllArgsConstructor

@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-
+/*
+Request Body for project assignment
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -18,7 +20,5 @@ public class ProjectDto {
 
     private String project_description;
 
-    private Date Start_Date;
 
-    private Date End_Date;
 }

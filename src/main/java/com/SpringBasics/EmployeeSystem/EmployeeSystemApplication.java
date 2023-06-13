@@ -17,7 +17,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import java.util.Arrays;
 import java.util.List;
 
-
+/*
+Main entry point for running the spring boot application
+ */
 @SpringBootApplication
 public class EmployeeSystemApplication {
 	@Bean

@@ -12,6 +12,10 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+
+/*
+Request body for creating users
+ */
 public class UserDto {
 
 

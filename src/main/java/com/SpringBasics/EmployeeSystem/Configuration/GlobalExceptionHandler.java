@@ -18,7 +18,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 
-//Global Exception Handler for all requests
+/*
+   Global Exception Handler for all requests
+
+ */
 
 
 @RestControllerAdvice
