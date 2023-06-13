@@ -53,61 +53,61 @@ Postman Collection for all endpoints
 
 
 
-<img width="1093" alt="screen2" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/08002549-adef-4a36-be1a-374b5c17c81a">
+<img width="500" alt="screen2" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/08002549-adef-4a36-be1a-374b5c17c81a">
 
 
 
 
-<img width="1060" alt="Screenshot 2023-06-13 at 4 16 30 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/b550c170-b5e3-4e02-b976-eb4ed9ab1ef8">
+<img width="500" alt="Screenshot 2023-06-13 at 4 16 30 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/b550c170-b5e3-4e02-b976-eb4ed9ab1ef8">
 
 
 
 
-<img width="1072" alt="Screenshot 2023-06-13 at 4 17 07 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/1af146d0-4ff9-4f9d-bee4-40807f61a43d">
+<img width="500" alt="Screenshot 2023-06-13 at 4 17 07 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/1af146d0-4ff9-4f9d-bee4-40807f61a43d">
 
 
 
 
-<img width="1070" alt="Screenshot 2023-06-13 at 4 17 38 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/a70dbbf6-0d79-4fa5-a0b8-8c991fc17414">
-
-
-
-
-
-<img width="1102" alt="Screenshot 2023-06-13 at 4 18 15 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/001a966d-abc4-498d-8a4a-845de3aaab1d">
+<img width="500" alt="Screenshot 2023-06-13 at 4 17 38 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/a70dbbf6-0d79-4fa5-a0b8-8c991fc17414">
 
 
 
 
 
-<img width="1045" alt="Screenshot 2023-06-13 at 4 19 15 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/cca81d0f-0541-49f9-a26c-58488dc3cff5">
+<img width="500" alt="Screenshot 2023-06-13 at 4 18 15 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/001a966d-abc4-498d-8a4a-845de3aaab1d">
 
 
 
 
 
-<img width="1116" alt="Screenshot 2023-06-13 at 4 20 08 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/da81a567-2c3b-472d-ba00-99bfce6a0da2">
-
-
-
-
-<img width="1098" alt="Screenshot 2023-06-13 at 4 21 59 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/436b1ec8-effe-4012-861c-ef6361ce390f">
-
-
-
-
-<img width="961" alt="Screenshot 2023-06-13 at 4 22 53 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/fdca6975-0bf5-4d75-9559-0abdcc799929">
+<img width="600" alt="Screenshot 2023-06-13 at 4 19 15 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/cca81d0f-0541-49f9-a26c-58488dc3cff5">
 
 
 
 
 
-<img width="1096" alt="Screenshot 2023-06-13 at 4 23 38 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/b503bc09-edad-4d0f-948d-30ab0a5bbf9c">
+<img width="500" alt="Screenshot 2023-06-13 at 4 20 08 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/da81a567-2c3b-472d-ba00-99bfce6a0da2">
 
 
 
 
-<img width="1122" alt="Screenshot 2023-06-13 at 4 24 28 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/ac2ca5bf-0832-4f24-85b1-45f9986e42ef">
+<img width="700" alt="Screenshot 2023-06-13 at 4 21 59 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/436b1ec8-effe-4012-861c-ef6361ce390f">
+
+
+
+
+<img width="700" alt="Screenshot 2023-06-13 at 4 22 53 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/fdca6975-0bf5-4d75-9559-0abdcc799929">
+
+
+
+
+
+<img width="700" alt="Screenshot 2023-06-13 at 4 23 38 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/b503bc09-edad-4d0f-948d-30ab0a5bbf9c">
+
+
+
+
+<img width="700" alt="Screenshot 2023-06-13 at 4 24 28 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/ac2ca5bf-0832-4f24-85b1-45f9986e42ef">
 
 
 
