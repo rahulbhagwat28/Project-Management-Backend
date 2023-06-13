@@ -73,7 +73,6 @@ Postman Collection for all endpoints
 
 
 
-<img width="1118" alt="Screenshot 2023-06-13 at 4 26 01 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/8c0e067a-e127-40e1-bbd6-82a2b7a7fbbb">
 
 
 
