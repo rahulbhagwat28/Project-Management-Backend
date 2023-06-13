@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Date;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -19,6 +21,12 @@ public class Project {
     private String project_name;
 
     private String project_description;
+
+
+    private Date Start_Date;
+
+    private Date End_Date;
+
 
     public Project(long project_id,String project_name,String project_description)
     {

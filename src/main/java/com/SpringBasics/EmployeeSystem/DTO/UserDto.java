@@ -1,7 +1,8 @@
 package com.SpringBasics.EmployeeSystem.DTO;
 
-import com.SpringBasics.EmployeeSystem.Entities.Company;
+import com.SpringBasics.EmployeeSystem.Constraints.CustomPassword;
 import com.SpringBasics.EmployeeSystem.Entities.Role;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -24,8 +25,10 @@ public class UserDto {
     private String username;
 
 
+    @Email(message = "Invalid Email format")
     private String email;
 
+    @CustomPassword
     private String password;
 
 

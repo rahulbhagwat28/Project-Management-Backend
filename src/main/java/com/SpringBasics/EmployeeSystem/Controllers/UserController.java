@@ -9,29 +9,21 @@ import com.SpringBasics.EmployeeSystem.DataAccess.RoleRepository;
 import com.SpringBasics.EmployeeSystem.DataAccess.UserRepository;
 import com.SpringBasics.EmployeeSystem.Entities.Project;
 import com.SpringBasics.EmployeeSystem.Entities.User;
-//import com.SpringBasics.EmployeeSystem.Entities.UserPrincipal;
 import com.SpringBasics.EmployeeSystem.Service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-//import org.springframework.security.access.prepost.PostAuthorize;
-//import org.springframework.security.access.prepost.PreAuthorize;
-//import org.springframework.security.authentication.AuthenticationManager;
-//import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-//import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-//import org.springframework.security.core.Authentication;
-//import org.springframework.security.core.annotation.AuthenticationPrincipal;
-//import org.springframework.security.core.context.SecurityContextHolder;
-//import org.springframework.security.core.userdetails.UserDetails;
-//import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
 
-@RestController
+/*
+Controller for handling all requests
+ */
 
+@RestController
 @RequestMapping("/api/v1/employees")
 public class UserController {
 

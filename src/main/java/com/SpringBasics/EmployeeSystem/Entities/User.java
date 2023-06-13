@@ -19,7 +19,7 @@ import lombok.*;
 
 @NoArgsConstructor
 @ToString
-@Table(name="users")
+@Table(name = "users")
 public class User {
 
     @Id
@@ -37,29 +37,19 @@ public class User {
 
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Project> projects;
-
-
-
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="company_id")
-    @JsonIgnore
-    private Company company;
 
 
     @ManyToMany
     private List<Role> roles;
 
 
-
-    public User(String username,String email,String password)
-    {
-        this.username=username;
-        this.email=email;
-        this.password=password;
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
     }
-
 
 
 }
