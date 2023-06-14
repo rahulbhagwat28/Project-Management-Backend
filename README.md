@@ -45,17 +45,28 @@ Run maven clean install
 
 start the server at localhost 8080 
 
-<img width="270" alt="image" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/450c31f9-beb1-4f89-abd7-d39d5fff0919">
+
+<img width="1469" alt="Screenshot 2023-06-13 at 7 12 18 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/9a639987-7f2b-4d73-b692-be3e234513ca">
 
 
 
 
-
- 
-
+<img width="1489" alt="Screenshot 2023-06-13 at 7 12 59 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/bb722534-009a-4288-9da0-4db2108bfcad">
 
 
- 
+
+<img width="1438" alt="Screenshot 2023-06-13 at 7 13 18 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/580395e3-7d53-4bb8-8790-abea3855289e">
+
+
+
+
+<img width="1390" alt="Screenshot 2023-06-13 at 7 13 41 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/255934e9-d307-4a70-8a87-7b8f36cd057a">
+
+
+
+<img width="1352" alt="Screenshot 2023-06-13 at 7 13 58 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/664035e1-7d28-454c-857b-6f399e318f16">
+
+
 
 
  
