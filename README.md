@@ -46,6 +46,10 @@ Run maven clean install
 start the server at localhost 8080 
 
 
+
+Postman Documentation for all the endpoints:
+
+
 <img width="1469" alt="Screenshot 2023-06-13 at 7 12 18 PM" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/9a639987-7f2b-4d73-b692-be3e234513ca">
 
 
