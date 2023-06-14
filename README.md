@@ -45,6 +45,9 @@ Run maven clean install
 
 start the server at localhost 8080 
 
+<img width="270" alt="image" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/450c31f9-beb1-4f89-abd7-d39d5fff0919">
+
+
 
 
 
