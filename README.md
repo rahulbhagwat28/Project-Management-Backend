@@ -49,12 +49,44 @@ start the server at localhost 8080
 Postman Collection for all endpoints
 
 
-<img width="178" alt="image" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/31960cdc-c34b-416e-b24f-94b483baaa62">
+
+ 
 
 
 
+ 
 
-<img width="277" alt="image" src="https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/57096b6d-4ed8-4390-9bd6-f9aa1b9544e7">
+ 
+
+ 
 
 
 
+ 
+
+
+ 
+
+ 
+
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+![image](https://github.com/rahulbhagwat28/Project-Management-Backend/assets/72269385/00bb343c-9777-4615-9ded-bb726e5d88f5)
