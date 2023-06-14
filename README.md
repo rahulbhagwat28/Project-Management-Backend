@@ -27,25 +27,25 @@ App runs on http://localhost:8080/api/v1/employees
 
 Services :
 
-1. Create Employee 
+1. Create Employee :
 Basic Authorization with an admin role is need to access this endpoint
 
-2. Update Employee
+2. Update Employee :
 Basic Authorization with an admin role is need to access this endpoint
 
-3. Delete Employee
+3. Delete Employee :
 Basic Authorization with an admin role is need to access this endpoint
 
-4. Find All Employees 
+4. Find All Employees :
 Any user can access this
 
-5. Assign Project
+5. Assign Project :
 Basic Authorization with a manager role is need to access this endpoint
 
-6. Complete Project
+6. Complete Project :
 Basic Authorization with an employee role  is need to access this endpoint
 
-7. Get Completed Projects 
+7. Get Completed Projects :
 Basic Authorization with a manager role is need to access this endpoint
 
 
