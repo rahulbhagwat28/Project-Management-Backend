@@ -25,6 +25,7 @@ All Users can retrieve the list of total users from the database
 
 App runs on http://localhost:8080/api/v1/employees
 
+
 Services :
 
 1. Create Employee :
@@ -47,6 +48,7 @@ Basic Authorization with an employee role  is need to access this endpoint
 
 7. Get Completed Projects :
 Basic Authorization with a manager role is need to access this endpoint
+
 
 
 Authentication method followed in Spring Security : Basic
