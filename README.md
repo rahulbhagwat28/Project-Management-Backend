@@ -21,7 +21,7 @@ Role Employee : A user having this role can complete projects assigned to them
 
 All Users can retrieve the list of total users from the database
 
-
+This project covers exception handling ,unit and integration tests, custom validations, simple database design with JPA Entities , Model View Controller pattern (Spring-web-mvc)
 
 App runs on http://localhost:8080/api/v1/employees
 
